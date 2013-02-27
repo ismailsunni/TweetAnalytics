@@ -1,4 +1,4 @@
-TweetAnalyis
-============
+TweetAnalytics
+==============
 
-Analyzing Your Tweets
+Analyze Your Tweets
