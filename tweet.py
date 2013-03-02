@@ -3,8 +3,13 @@
 # contact : imajimatika@gmail.com
 # created : 24/02/2012
 
+from ttp import Parser
+
 class Tweet:
     def __init__(self, long_text=None):
+        """Init function for tweet.
+        """
+        self.parser = Parser()
         if long_text is not None:
              self.parse_string()
         else:
@@ -32,6 +37,20 @@ class Tweet:
         if len(list_element) == 9:
             self.expanded_urls = list_element[8]
 
+    def get_mentions(self):
+        """Return list of user mentioned in the tweet.
+        Return empty list if no user mentioned.
+        """
+        my_users = self.parser.parse(self.text).users
+        return my_users
+
+    def get_hashtags(self):
+        """Return list of hashtag in the tweet.
+        Return empty list if no hashtag used.
+        """
+        my_hashtags = self.parser.parse(self.text).tags
+        return my_hashtags
+
     def print_tweet(self):
         """Print tweet in beautiful format
         """
@@ -44,3 +63,15 @@ class Tweet:
         print 'source : ', self.source
         print 'text : ', self.text
         print 'expanded_urls : ', self.expanded_urls
+
+
+def main():
+    """For testing some function in this file
+    """
+    my_tweet = Tweet()
+    my_tweet.text = '@dinolestari @Ardisaz @widhaprasa Kalau gak hari sabtu ya hari minggu din #apem'
+    print my_tweet.get_mentions()
+    print my_tweet.get_hashtags()
+
+if __name__ == '__main__':
+    main()
