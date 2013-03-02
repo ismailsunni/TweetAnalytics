@@ -1,3 +1,5 @@
+"""Class for representing tweet
+"""
 # tweet class for analyzing
 # author : @ismailsunni
 # contact : imajimatika@gmail.com
@@ -5,23 +7,23 @@
 
 from ttp import Parser
 
+
 class Tweet:
-    def __init__(self, long_text=None):
+    """Class for representing tweet
+    """
+    def __init__(self):
         """Init function for tweet.
         """
         self.parser = Parser()
-        if long_text is not None:
-             self.parse_string()
-        else:
-            self.tweet_id = ''
-            self.in_reply_to_status_id = ''
-            self.in_reply_to_user_id = ''
-            self.retweeted_status_id = ''
-            self.retweeted_status_user_id = ''
-            self.timestamp = ''
-            self.source = ''
-            self.text = ''
-            self.expanded_urls = ''
+        self.tweet_id = ''
+        self.in_reply_to_status_id = ''
+        self.in_reply_to_user_id = ''
+        self.retweeted_status_id = ''
+        self.retweeted_status_user_id = ''
+        self.timestamp = ''
+        self.source = ''
+        self.text = ''
+        self.expanded_urls = ''
 
     def parse_list(self, list_element):
         """Parse tweet from list.
@@ -69,7 +71,8 @@ def main():
     """For testing some function in this file
     """
     my_tweet = Tweet()
-    my_tweet.text = '@dinolestari @Ardisaz @widhaprasa Kalau gak hari sabtu ya hari minggu din #apem'
+    my_tweet.text = '@dinolestari @Ardisaz @widhaprasa Kalau gak '
+    my_tweet.text += 'hari sabtu ya hari minggu din #apem'
     print my_tweet.get_mentions()
     print my_tweet.get_hashtags()
 

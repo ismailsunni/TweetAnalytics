@@ -8,6 +8,7 @@ from utilities import sort_dict
 import csv
 import os
 
+
 class TweetAnalysis:
     def __init__(self, data_path, my_username=None):
         self.data_path = data_path
@@ -94,7 +95,7 @@ class TweetAnalysis:
                         del dict_mention[the_alias]
         retval = sort_dict(dict_mention, num_elements=num_mention)
         return retval
-        
+
     def analyze_hashtag(self, num_hashtag=10):
         """Return the 10 highest hashtag in your tweets.
         """
@@ -108,7 +109,8 @@ class TweetAnalysis:
                     dict_hashtag[my_hashtag] += 1
         retval = sort_dict(dict_hashtag, num_elements=num_hashtag)
         return retval
-        
+
+
 def main():
     my_path = r'D:\Kode\TweetAnalytics\tweets.csv'
     list_alias = [['akhyaniaon7', 'niania507']]
